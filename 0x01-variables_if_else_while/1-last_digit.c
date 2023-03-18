@@ -2,12 +2,14 @@
 #include <time.h>
 /* more headers goes there */
 #include <stdio.h>
+
+/* betty style doc for function main goes there */
 /**
  * main - the main function
  *
- * Return: 0 is less than 6
+ * Return: 0 always
  */
-/* betty style doc for function main goes there */
+
 int main(void)
 {
 	int n;
@@ -23,6 +25,8 @@ int main(void)
 		 printf("last digit of %d is %d and is zero", n, m);
 	 else if (m < 6 && m != 0)
 		 printf("last digit of %d is %d and is less than 6 and not 0", n, m);
+
 	 printf("\n");
+
 	return (0);
 }
