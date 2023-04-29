@@ -5,7 +5,7 @@
  * @n: data to insert in that new node 
  * @head: pointer to the first head in  node
  *
- * Return: number of nudes
+ * Return: pointer of nudes, Null if it fails
  */
 listint_t *add_nodeint(listint_t **head, const int n)
 {
