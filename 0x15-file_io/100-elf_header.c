@@ -39,31 +39,8 @@ void check_elf(unsigned char *e_ident)
 			exit(98);
 		}
 	}
-
 }
-/**
- * print_magic - Prints the magic numbers of an ELF header.
- * @e_ident: A pointer to an array containing the ELF magic numbers.
- *
- * Description: Magic numbers are separated by spaces.
-*/
-void print_magic(unsigned char *e_ident)
-{
-	int index;
 
-	printf(" Magic: ");
-
-	for (index = 0; index < EI_NIDENT; index++)
-	{
-		printf("%02x", e_ident[index]);
-
-		if (index == EI_NIDENT - 1)
-			printf("\n");
-		else
-			printf(" ");
-	}
-
-}
 /**
  *  * print_class - Prints the class of an ELF header.
  * @e_ident: A pointer to an array containing the ELF class.
@@ -109,24 +86,6 @@ void print_data(unsigned char *e_ident)
 		break;
 	default:
 		printf("<unknown: %x>\n", e_ident[EI_CLASS]);
-	}
-
-}
-/**
- * print_version - Prints the version of an ELF header.
- * @e_ident: A pointer to an array containing the ELF version.
-*/
-void print_version(unsigned char *e_ident)
-{
-	 printf(" Version: %d", e_ident[EI_VERSION]);
-	switch (e_ident[EI_VERSION])
-	{
-	case EV_CURRENT:
-		printf(" (current)\n");
-		break;
-	default:
-		printf("\n");
-		break;
 	}
 }
 /**
@@ -230,7 +189,6 @@ void print_entry(unsigned long int e_entry, unsigned char *e_ident)
 			  ((e_entry >> 8) & 0xFF00FF);
 		e_entry = (e_entry << 16) | (e_entry >> 16);
 	}
-
 	if (e_ident[EI_CLASS] == ELFCLASS32)
 		printf("%#x\n", (unsigned int)e_entry);
 
@@ -303,7 +261,3 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 	close_elf(o);
 	return (0);
 }
-/**
- * Description: If the file is not an ELF File or
- * the function fails - exit code 98.
-*/
